@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelendost İlçe Emniyet Amirliği - 2025 Protokol Sınırıları</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px; /* Kenarlarda boşluk bırakmak için */
+            box-sizing: border-box; /* Padding'in genişliğe dahil olmasını sağlar */
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Daha belirgin gölge */
+            text-align: center;
+            /* GENİŞLİK DÜZELTME: Ekranın %90'ını kapla, maksimum 500px olsun. */
+            width: 90%; 
+            max-width: 500px;
+        }
+        /* Yeni Başlık Stili */
+        .baslik {
+            font-size: 1.6em; /* Başlığı büyüttük */
+            color: #1a1a73; 
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+        /* Logo Alanı Stili */
+        .logo-alani {
+            margin-bottom: 20px;
+        }
+        .logo-alani img {
+            max-width: 120px; /* Logonun boyutunu büyüttük */
+            height: auto;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        input[type="password"] {
+            width: 100%;
+            padding: 12px; /* Giriş kutusunu büyüttük */
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px; /* Butonu büyüttük */
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #mesaj {
+            margin-top: 15px;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo-alani">
+        </div>
+    <div class="baslik">
+        Gelendost İlçe Emniyet Amirliği<br>2025 Protokol Sınırları
+    </div>
+    <input type="password" id="sifreInput" placeholder="Şifrenizi girin!" onkeypress="handleKeyPress(event)">
+    <button onclick="sifreKontrol()">Giriş Yap</button>
+    <p id="mesaj"></p>
+</div>
+
+<script>
+    // --- BURAYI DÜZENLEYİN ---
+    const DOGRU_SIFRE = "1845"; // Buraya istediğiniz şifreyi yazın
+    const HEDEF_LINK = "https://www.google.com/maps/d/u/8/edit?mid=1Emk3GMv0N3ssV947PkLBe1gQk8vcFI8&usp=sharing"; // Buraya My Maps haritanızın linkini yapıştırın
+    // -------------------------
+
+    function sifreKontrol() {
+        const girilenSifre = document.getElementById("sifreInput").value;
+        const mesajAlani = document.getElementById("mesaj");
+
+        if (girilenSifre === DOGRU_SIFRE) {
+            mesajAlani.style.color = "green";
+            mesajAlani.textContent = "Giriş başarılı! Yönlendiriliyorsunuz...";
+            // Doğru şifre girildiğinde yeni sayfaya yönlendir
+            window.location.href = HEDEF_LINK;
+        } else {
+            mesajAlani.style.color = "red";
+            mesajAlani.textContent = "Hata: Yanlış şifre!";
+        }
+    }
+
+    function handleKeyPress(event) {
+        // Enter tuşuna basıldığında da kontrol fonksiyonunu çalıştır
+        if (event.key === 'Enter') {
+            sifreKontrol();
+        }
+    }
+</script>
+
+</body>
+</html>
